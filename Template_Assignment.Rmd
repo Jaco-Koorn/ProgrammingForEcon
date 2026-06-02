@@ -23,6 +23,7 @@ require(yaml)
 
 Include your names
 Anastasios
+Diego
 
 Include the tutorial group number
 
