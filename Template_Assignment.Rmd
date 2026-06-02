@@ -22,9 +22,16 @@ require(yaml)
 # Title Page
 
 Include your names
+<<<<<<< HEAD
 Anastasios
 Diego
 
+=======
+Anastasios
+Stefan
+Omar
+Ingmar
+>>>>>>> 617f0a21df4e7799cee3e544a82591156c3d893f
 Include the tutorial group number
 
 Include your tutorial lecturer's name Simon Loop
