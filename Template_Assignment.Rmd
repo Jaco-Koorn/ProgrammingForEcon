@@ -31,6 +31,7 @@ Anastasios
 Stefan
 Omar
 Ingmar
+Diego
 >>>>>>> 617f0a21df4e7799cee3e544a82591156c3d893f
 Include the tutorial group number
 
