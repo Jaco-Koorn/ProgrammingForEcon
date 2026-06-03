@@ -21,13 +21,9 @@ require(yaml)
 
 # Title Page
 
-Include youry names
+Include your  names
 <<<<<<< HEAD
-Anastasios
-Diego
-
-=======
-Anastasios
+Anastasios Goudras
 Stefan
 Omar
 Ingmar
