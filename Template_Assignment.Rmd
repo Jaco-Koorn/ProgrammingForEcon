@@ -22,7 +22,7 @@ require(yaml)
 # Title Page
 
 Include your  names
-<<<<<<< HEAD
+HEAD
 Anastasios Goudras
 Stefan
 Omar
