@@ -49,7 +49,7 @@ Include the following:
 
 ## 2.1 Load in the data
 
-Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
+Both datasets are downloaded directly from Eurostat using the eurostat package, so the data is fetched when the document is knitted and nothing needs to be stored in the GitHub repository.
 
 ```{r loading_data}
 library(eurostat)
@@ -61,31 +61,21 @@ bmi_edu <- get_eurostat("hlth_ehis_bm1e", time_format = "num")
 obesity_trend <- get_eurostat("sdg_02_10", time_format = "num")
 ```
 
-midwest is an example dataset included in the tidyverse package
-
 ## 2.2 Provide a short summary of the dataset(s)
 
 ```{r}
-head(dataset)
+head(bmi_edu)
+head(obesity_trend)
 ```
+Our first dataset, bmi_edu, comes from Eurostat and is called "Body mass index (BMI) by sex, age and educational attainment level" (dataset code hlth_ehis_bm1e). It is based on the European Health Interview Survey (EHIS), a survey in which people across European countries report their own height and weight. For each country and year, the dataset gives the percentage of people in different BMI categories (such as normal weight, overweight, and obese), broken down by education level, sex, and age. Because the survey is only carried out every few years, the data covers a small number of waves (around 2014 and 2019). This dataset is central to our project because it is the one that connects weight to education level.
 
-In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
-
-``` r
-inline_code = TRUE
-```
-
-These are things that are usually included in the metadata of the dataset. For your project, you need to provide us with the information from your metadata that we need to understand your dataset of choice.
+Our second dataset, obesity_trend, also comes from Eurostat and is called "Obesity rate by body mass index (BMI)" (dataset code sdg_02_10). It is one of Eurostat's Sustainable Development Goal (SDG) monitoring indicators, built from European health surveys in which adults report their own height and weight. For each country and year, it gives the percentage of people in different BMI categories such as overweight and obese. Unlike our first dataset, it does not break the figures down by education level, but it covers more years per country (for example 2008, 2014, 2017, 2019 and 2022), which makes it well suited for showing how obesity has changed over time. This dataset is important for our project because it provides the "over time" and "across countries" side of our research question.
 
 ## 2.3 Describe the type of variables included
 
-Think of things like:
-
--   Do the variables contain health information or SES information?
-
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
-
-*For the sake of this example, I will continue with the assignment...*
+The variables in our datasets fall into a few types. The main health information is the BMI/obesity measure — the share of people who are overweight or obese (the bmi and values columns). The main socioeconomic (SES) information is the education level (the isced11 column in bmi_edu), which is the variable at the centre of our research question. The remaining variables — sex, age, country (geo) and year (TIME_PERIOD) — are background characteristics that let us split the figures by group, country and time.
+In terms of how the data was collected, neither dataset comes from administrative sources such as hospital or government records. Both are based on surveys in which people are interviewed and report their own height and weight. This has two consequences. First, because height and weight are self-reported, obesity tends to be slightly underestimated, as people often round their weight down. Second, our two datasets are not fully independent, because the SDG indicator (obesity_trend) is partly built on the same European Health Interview Survey as bmi_edu — so they are related rather than two completely separate sources.
+We chose these two datasets together on purpose: bmi_edu provides the education breakdown we need, while obesity_trend gives a longer view over time and across countries. Because both rely on self-reported survey data, our analysis can describe patterns and associations — for example, that obesity is more common among lower-educated groups — but it cannot prove that education causes obesity.
 
 # Part 3 - Quantifying
 
