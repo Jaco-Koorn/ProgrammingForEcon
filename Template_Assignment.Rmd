@@ -55,13 +55,12 @@ The fact we are looking at the European aspect of this issue also adds to its re
 Both datasets are downloaded directly from Eurostat using the eurostat package, so the data is fetched when the document is knitted and nothing needs to be stored in the GitHub repository.
 
 ```{r loading_data}
-library(eurostat)
+library(tidyverse)
 
-# Dataset 1: obesity by education
-bmi_edu <- get_eurostat("hlth_ehis_bm1e", time_format = "num")
+# Load the saved datasets from our repository
+bmi_edu <- read_csv("data/bmi_edu.csv")
+obesity_trend <- read_csv("data/obesity_trend.csv")
 
-# Dataset 2: obesity trend over time
-obesity_trend <- get_eurostat("sdg_02_10", time_format = "num")
 ```
 
 ## 2.2 Provide a short summary of the dataset(s)
@@ -165,3 +164,9 @@ Provide the link to your PUBLIC repository here: ...
 ## 5.2 Reference list
 
 Use APA referencing throughout your document.
+
+Eurostat. (2025). Overweight and obesity by sex, age and educational attainment level — SDG indicator [Data set]. European Commission. https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10
+
+Dataset 2 — European Health Interview Survey, BMI
+
+Eurostat. (2023). Body mass index (BMI) by sex, age and educational attainment level — European Health Interview Survey [Data set]. European Commission. https://ec.europa.eu/eurostat/databrowser/view/hlth_ehis_bm1e
