@@ -23,6 +23,7 @@ require(yaml)
 
 Include your  names
 HEAD
+Thedor
 Anastasios Goudras
 Stefan
 Omar
@@ -35,16 +36,17 @@ Include your tutorial lecturer's name Simon Loop
 
 # Part 1 - Identify a Social Problem
 
-ashdsajad jb 
+The social problem we have identified is the link between the BMI Index and educational attainment level, bridging two data sets from Eurostat to compare and identify any correlation between the two factors. 
+
+
 Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
 
 ## 1.1 Describe the Social Problem
 
-Include the following:
+The correlation between these two variables is relevant as it has real consequences for individuals, healthcare systems, and policymakers. The relevance of this lies in the fact that obesity comes with serious health risks such as diabetes and cardiovascular issues. This then results in the burden of health risks being disproportionately put on the lower educated class of society and further exacerbating social inequality issues. Beyond the health risks themselves, education has a clear impact on the ability of a person to maintain a healthy lifestyle, as higher education often comes with higher income, better access to higher quality food and so on. This means that addressing obesity cannot be done through increasing awareness alone and that broader structural interventions such as food pricing policies or workplace conditions need to be considered.
 
--   Why is this relevant?
+The fact we are looking at the European aspect of this issue also adds to its relevance. By looking at multiple countries over time, it becomes possible to assess whether this education gap in obesity rates is a universal pattern across Europe or whether certain countries have managed to narrow it. This kind of cross country comparison is useful for understanding what policy approaches may actually work in practice.
 
--   ...
 
 # Part 2 - Data Sourcing
 
