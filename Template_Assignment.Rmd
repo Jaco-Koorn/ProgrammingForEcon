@@ -85,10 +85,42 @@ We chose these two datasets together on purpose: bmi_edu provides the education 
 
 Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
-```{r data_cleaning}
-mean(dataset$percollege)
+# Cleaning Step 1: Filter and clean the first dataset
+```{r}
+bmi_edu_clean <- bmi_edu %>%
+  filter(
+    bmi == "BMI_OBS",                        # Keep only Obese rows
+    isced11 %in% c("ED0-2", "ED3_4", "ED5-8"), # Separate the 3 education groups
+    sex == "T",                              # Combined sexes
+    age == "Y15-74"                          # Combined adult age group
+  ) %>%
+  select(geo, TIME_PERIOD, isced11, bmi_value = values) %>%
+  drop_na(bmi_value)
+  
 ```
 
+
+# Cleaning Step 2: Filter and clean the second dataset
+```{r}
+
+obesity_trend_clean <- obesity_trend %>%
+  filter(
+    bmi == "BMI_OBS" # Keep only Obese rows since that's what we are comparing
+  ) %>%
+  select(geo, TIME_PERIOD, trend_value = values) %>%
+  drop_na(trend_value)
+```
+
+
+  
+# Cleaning Step 3: Combine both datasets into one master file
+```{r}
+combined_dataset <- inner_join(bmi_edu_clean, obesity_trend_clean, by = c("geo", "TIME_PERIOD"))
+```
+
+
+
+  
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
 
 ## 3.2 Generate necessary variables
@@ -96,13 +128,25 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 Variable 1
 
 ```{r gen_var1}
-
+# Create Variable 1: Human-readable education levels
+bmi_edu_with_var1 <- combined_dataset %>%
+  mutate(
+    edu_level = case_when(
+      isced11 == "ED0-2" ~ "Low Education",
+      isced11 == "ED3_4" ~ "Medium Education",
+      isced11 == "ED5-8" ~ "High Education"
+    )
+  )
 ```
 
 Variable 2
 
 ```{r gen_var2}
-
+# Create Variable 2: Convert the percentage value to a 0-1 decimal proportion
+final_analysis_data <- bmi_edu_with_var1 %>%
+  mutate(
+    bmi_proportion = bmi_value / 100
+  )
 ```
 
 ## 3.3 Visualize temporal variation
