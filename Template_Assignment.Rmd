@@ -1,38 +1,23 @@
 ---
 title: "The education-obesity link across countries over time"
-author: "Studentnames and studentnumbers here"
-date: "`r Sys.Date()`"
-output: pdf_document
+author: "Anastasios Goudras(2855565), Thedor(), Stefan(), Omar(), Ingmar(), Diego()"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
 ---
 
-# Set-up your environment
-
-```{r package_install, include=FALSE}
-install.packages("tidyverse")
-install.packages("yaml")
-install.packages("rmarkdown")
-```
-
-```{r packages}
-require(tidyverse)
-require(rmarkdown)
-require(yaml)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(tidyverse)
 ```
 
 # Title Page
 
-Include your  names
-HEAD
-Thedor
-Anastasios Goudras
-Stefan
-Omar
-Ingmar
-Diego
->>>>>>> 617f0a21df4e7799cee3e544a82591156c3d893f
-Include the tutorial group number
+Tutorial group: 6.1
 
-Include your tutorial lecturer's name Simon Loop
+Tutorial lecturer: Simon Loop
 
 # Part 1 - Identify a Social Problem
 
@@ -167,7 +152,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 What is the poverty rate by state?
 
-```{r visualise_subpopulations}
+#```{r visualise_subpopulations}
 dataset$inmetro <- dataset$inmetro %>% as.factor()
 # Boxplot of poverty rate by state using the 'midwest' dataset
 ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
