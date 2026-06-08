@@ -92,7 +92,7 @@ Say we want to include only larger distances (above 2) in our dataset, we can fi
 bmi_edu_clean <- bmi_edu %>%
   filter(
     bmi == "BMI_GE30",                        # Keep only Obese rows
-    isced11 %in% c("ED0-2", "ED3_4", "ED5-8"), # Separate the 3 education groups
+    isced11 %in% c("ED0-2", "ED3-4", "ED5-8"), # Separate the 3 education groups
     sex == "T",                              # Combined sexes
     age == "TOTAL"                          # Combined adult age group
   ) %>%
@@ -135,7 +135,7 @@ bmi_edu_with_var1 <- combined_dataset %>%
   mutate(
     edu_level = case_when(
       isced11 == "ED0-2" ~ "Low Education",
-      isced11 == "ED3_4" ~ "Medium Education",
+      isced11 == "ED3-4" ~ "Medium Education",
       isced11 == "ED5-8" ~ "High Education"
     )
   )
@@ -143,17 +143,28 @@ bmi_edu_with_var1 <- combined_dataset %>%
 
 
 ```{r}
-
+# Reshaping before subtracting
+gap_data <- bmi_edu_with_var1 %>%
+  # 1. Isolate the columns we need
+  select(geo, TIME_PERIOD, edu_level, bmi_value) %>%
+  
+  # 2.Flip the rows into columns
+  pivot_wider(
+    names_from = edu_level, 
+    values_from = bmi_value
+  )
 ```
 
 
 Variable 2
 
 ```{r gen_var2}
-# Create Variable 2: Convert the percentage value to a 0-1 decimal proportion
-final_analysis_data <- bmi_edu_with_var1 %>%
+library(dplyr)
+
+# Create Variable 2: Calculate the obesity inequality gap
+final_gap_data <- gap_data %>%
   mutate(
-    bmi_proportion = bmi_value / 100
+    obesity_gap = `Low Education` - `High Education`
   )
 ```
 
