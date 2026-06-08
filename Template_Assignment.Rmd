@@ -28,9 +28,9 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 ## 1.1 Describe the Social Problem
 
-The correlation between these two variables is relevant as it has real consequences for individuals, healthcare systems, and policymakers. The relevance of this lies in the fact that obesity comes with serious health risks, such as; diabetes and cardiovascular issues. This then results in the burden of health risks being disproportionately put on the lower educated class of society, and further exacerbating social inequality issues. Beyond the health risks themselves, education has a clear impact on the ability of a person to maintain a healthy lifestyle, as higher education often comes with higher income, better access to higher quality food and so on. This means that addressing obesity cannot be done through increasing awareness alone, and that broader structural interventions, such as food pricing policies or workplace conditions need to be considered.
+The relevance of these two variables, BMI and education levels, and how they are correlated with each other lies in the fact that obesity comes with serious health risks, such as diabetes and cardiovascular issues, which are often more common among people with lower educational attainment (World Health Organization, 2022; European Commission, 2024). This then results in the burden of health risks being disproportionately put on the lower educated class of society, and further increases social inequality issues. Beyond the health risks themselves, education has a clear impact on the ability of a person to maintain a healthy lifestyle, as higher education often comes with higher income, better access to higher quality food and so on. This means that addressing obesity cannot be done through increasing awareness alone, and that broader structural interventions, such as food pricing policies or workplace conditions need to be considered.
 
-The fact we are looking at the European aspect of this issue, also adds to its relevance. By looking at multiple countries over time, it becomes possible to assess whether this education gap in obesity rates is a universal pattern across Europe or whether certain countries have managed to narrow it. This kind of cross country comparison is useful for understanding what policy approaches may actually work in practice.
+The fact we are looking at the European aspect of this issue also adds to its relevance. By looking at multiple countries over time, it becomes possible to assess whether this education gap in obesity rates is a universal pattern across Europe or whether certain countries have managed to narrow it. This kind of cross country comparison is useful for understanding what policy approaches may actually work in practice, especially since educational inequalities in obesity have been documented across Europe in recent research (World Health Organization, 2022; European Commission, 2024).
 
 
 # Part 2 - Data Sourcing
@@ -210,6 +210,10 @@ Provide the link to your PUBLIC repository here: ...
 ## 5.2 Reference list
 
 Use APA referencing throughout your document.
+
+European Commission. (2024). Health inequalities: Overweight and obesity. Knowledge4Policy. https://knowledge4policy.ec.europa.eu/health-promotion-knowledge-gateway/health-inequalities-5_en
+
+World Health Organization. (2022). Obesity and inequities. https://iris.who.int/bitstreams/c025afdb-1ca7-49e2-ba89-adca1529e47c/download
 
 Eurostat. (n.d.-a). Body mass index (BMI) by sex, age and educational attainment level [Data set]. Retrieved June 7, 2026, from https://ec.europa.eu/eurostat/databrowser/view/hlth_ehis_bm1e
 
