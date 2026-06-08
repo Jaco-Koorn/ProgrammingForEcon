@@ -91,10 +91,10 @@ Say we want to include only larger distances (above 2) in our dataset, we can fi
 ```{r}
 bmi_edu_clean <- bmi_edu %>%
   filter(
-    bmi == "BMI_OBS",                        # Keep only Obese rows
+    bmi == "BMI_GE30",                        # Keep only Obese rows
     isced11 %in% c("ED0-2", "ED3_4", "ED5-8"), # Separate the 3 education groups
     sex == "T",                              # Combined sexes
-    age == "Y15-74"                          # Combined adult age group
+    age == "TOTAL"                          # Combined adult age group
   ) %>%
   select(geo, TIME_PERIOD, isced11, bmi_value = values) %>%
   drop_na(bmi_value)
@@ -107,7 +107,7 @@ bmi_edu_clean <- bmi_edu %>%
 
 obesity_trend_clean <- obesity_trend %>%
   filter(
-    bmi == "BMI_OBS" # Keep only Obese rows since that's what we are comparing
+    bmi == "BMI_GE30" # Keep only Obese rows since that's what we are comparing
   ) %>%
   select(geo, TIME_PERIOD, trend_value = values) %>%
   drop_na(trend_value)
@@ -140,6 +140,12 @@ bmi_edu_with_var1 <- combined_dataset %>%
     )
   )
 ```
+
+
+```{r}
+
+```
+
 
 Variable 2
 
