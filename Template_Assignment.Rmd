@@ -167,7 +167,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-What is the poverty rate by state?
+What is the obesity rate by country?
 
 #```{r visualise_subpopulations}
 dataset$inmetro <- dataset$inmetro %>% as.factor()
@@ -189,7 +189,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.6 Event analysis
 
-Analyze the relationship between two variables.
+Analyze the relationship between two variables (BMI .
 
 ```{r analysis}
 
