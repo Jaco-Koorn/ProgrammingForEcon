@@ -155,6 +155,7 @@ gap_data <- bmi_edu_with_var1 %>%
   )
 ```
 
+and here 
 
 Variable 2
 
