@@ -205,10 +205,31 @@ obesity_trend_clean %>%
 ## 3.4 Visualize spatial variation
 
 ```{r visualise_map}
+latest_year <- max(final_gap_data$TIME_PERIOD, na.rm = TRUE)
 
+final_gap_data %>%
+  filter(TIME_PERIOD == latest_year) %>%
+  ggplot(aes(x = reorder(geo, obesity_gap), y = obesity_gap)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = paste("Spatial variation in the education-obesity gap in", latest_year),
+    subtitle = "Difference between low and high education obesity rates across countries",
+    x = "Country",
+    y = "Obesity gap, percentage points"
+  ) +
+  theme_minimal()
+
+# Line 208 selects the last year that we are able to use
+# Line 211 filters out everything except the last year
+# Line 212-221: creates the plot geom_col makes the bar plot, coord_flip flips the plot so it is nicer to read.The last few lines create the titles and labels.
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
+
+This figure shows the regional differences in the education-obesity gap between countries in the most recent year for which data is available. The gap is calculated by subtracting the percentage of obese people among the low-skilled from the percentage of obese people among the highly skilled.
+
+A positive value indicates that obesity is more prevalent among the low-educated. The countries are ranked according to the size of the gap, making it easier to see where education-related inequality in obesity is greatest.
 
 ## 3.5 Visualize sub-population variation
 
