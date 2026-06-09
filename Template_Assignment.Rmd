@@ -1,6 +1,6 @@
 ---
 title: "The education-obesity link across countries over time"
-author: "Anastasios Goudras(2855565), Thedor(), Stefan(), Omar(), Ingmar(), Diego Melendez(2841772)"
+author: "Anastasios Goudras(2855565), Thedor(), Stefan(), Omar(), Ingmar(2890403), Diego Melendez(2841772)"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output:
   pdf_document:
@@ -171,7 +171,17 @@ final_gap_data <- gap_data %>%
 ## 3.3 Visualize temporal variation
 
 ```{r}
+# First I make a vector of the landcodes of the countries in Europe with the largest population, because using every country from the datasets will make the visualisation really chaotic.
+largest_european_countries <- c("RU", "TR", "DE", "GB", "FR", "IT", "ES", "UA", "PL", "RO")
+# RU:Russia, TR:Turkey, DE:Germany, GB:UnitedKingdom, FR:France, IT:Italy, ES:Spain, UA:Ukraine, PL:Poland, RO:Romania
 
+# The following code only selects the countries that are ACTUALLY in the dataset. So now if Russia, for example, is not in the dataset, R does not crash.
+selected_countries <- largest_european_countries[
+  largest_european_countries %in% final_gap_data$geo
+]
+
+# This line shows the countries that are selected.
+selected_countries
 ```
 
 ## 3.4 Visualize spatial variation
