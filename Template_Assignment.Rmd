@@ -225,11 +225,9 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 5.1 Github repository link
 
-Provide the link to your PUBLIC repository here: ...
+https://github.com/theodorkubi/ProgrammingForEcon
 
 ## 5.2 Reference list
-
-Use APA referencing throughout your document.
 
 European Commission. (2024). Health inequalities: Overweight and obesity. Knowledge4Policy. https://knowledge4policy.ec.europa.eu/health-promotion-knowledge-gateway/health-inequalities-5_en
 
