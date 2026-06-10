@@ -236,21 +236,37 @@ A positive value indicates that obesity is more prevalent among the low-educated
 
 What is the obesity rate by country?
 
-#```{r visualise_subpopulations}
-dataset$inmetro <- dataset$inmetro %>% as.factor()
-# Boxplot of poverty rate by state using the 'midwest' dataset
-ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
-  geom_boxplot() +
+```{r visualise_subpopulations}
+
+subpop_data <- bmi_edu %>%
+  filter(
+    bmi == "BMI_GE30",
+    isced11 %in% c("ED0-2", "ED3_4", "ED5-8"),
+    sex == "T",
+    age == "TOTAL"
+  ) %>%
+  mutate(
+    edu_level = case_when(
+      isced11 == "ED0-2" ~ "Low",
+      isced11 == "ED3_4" ~ "Medium",
+      isced11 == "ED5-8" ~ "High"
+    ),
+    edu_level = factor(edu_level, levels = c("Low", "Medium", "High"))
+  ) %>%
+  drop_na(values)
+
+ggplot(subpop_data, aes(x = edu_level, y = values)) +
+  geom_boxplot(fill = "steelblue", alpha = 0.7) +
   labs(
-    title = "Distribution of Poverty Rates by Metropolitan status (Midwest counties)",
-    x = "Metropolitan Area",
-    y = "Poverty Rate of Adults (%)"
+    title = "Obesity rates by education level",
+    subtitle = "Distribution across European countries (2014 & 2019)",
+    x = "Education level",
+    y = "Obesity rate (%)"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "right"
-  )
+  theme_minimal()
 ```
+##
+
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
