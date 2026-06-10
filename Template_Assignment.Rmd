@@ -264,10 +264,15 @@ ggplot(subpop_data, aes(x = edu_level, y = values)) +
     y = "Obesity rate (%)"
   ) +
   theme_minimal()
+
+#line 241-246 selects the data that is been used
+#line 249-252 gives the three education groups understandable names
+#line 254 fixes the order of education levels
+#line 258-264 creates the boxplot with title and axis labels
 ```
 ##
 
-
+The plot above is relevant because it clearly shows how a lower education level is correlated to a higher obesity rate. 
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
@@ -276,8 +281,41 @@ Analyze the relationship between two variables (BMI .
 
 ```{r analysis}
 
+# Calculate average obesity rate per country per education level for the latest year
+event_data <- bmi_edu_clean %>%
+  filter(TIME_PERIOD == 2019) %>%
+  pivot_wider(
+    names_from = isced11,          # Spread education levels into separate columns
+    values_from = bmi_value
+  ) %>%
+  rename(
+    low = `ED0-2`,
+    medium = `ED3_4`,
+    high = `ED5-8`
+  ) %>%
+  drop_na()
+
+# Scatter plot: low vs high education obesity rate per country
+ggplot(event_data, aes(x = high, y = low)) +
+  geom_point(size = 2.5, colour = "steelblue") +    # One dot per country
+  geom_smooth(method = "lm", se = TRUE, colour = "darkred") +  # Regression line with confidence band
+  geom_text(aes(label = geo), vjust = -0.8, size = 3) +        # Country labels above each dot
+  labs(
+    title = "Relationship between education level and obesity (2019)",
+    subtitle = "Each point represents one country",
+    x = "Obesity rate among highly educated (%)",
+    y = "Obesity rate among low educated (%)"
+  ) +
+  theme_minimal()
+#line 285-296 selects data that is been used
+#line 299 creates the plot with high education on x and low education on y
+#line 304-307 adds title and axis labels
+# Print the correlation coefficient
+cor.test(event_data$high, event_data$low)
+
 ```
 
+The plot above is relevant to our social problem because it shows per country if our hypothesis is true. It also shows for which countries the theory holds more. The reason why we put the regression line with confidence band is because it clearly shows which countries are the outliers in obesity rates and which are exceptions. The plot for example shows that in Croatia the lower educated has more than double obesity rate than higher educated. This is also visible in the spatial variation. So it is clear that our graphs support each other. 
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 # Part 4 - Discussion
